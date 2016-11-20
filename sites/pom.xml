@@ -14,23 +14,11 @@
     <url>http://git.jbmlabs.com/scm/jbmlabs/</url>
   </scm>
 
-  <profiles>
-    <profile>
-      <id>SlowTests</id>
-      <properties>
-        <testcase.excluded-groups></testcase.excluded-groups>
-      </properties>
-    </profile>
-  </profiles>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <version.java.source>1.8</version.java.source>
     <version.java.target>1.8</version.java.target>
-
-    <!-- By Default exclude SlowTests -->
-    <testcase.excluded-groups>com.jbmlabs.lib.test.SlowTests</testcase.excluded-groups>
 
     <!-- Dependency versions -->
     <version.aspectj>1.8.8</version.aspectj>
