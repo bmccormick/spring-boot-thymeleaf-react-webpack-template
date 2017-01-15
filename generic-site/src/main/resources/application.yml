@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: prod
+
+server:
+  port: 8100
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
+
+app:
+  baseURL: http://www.betterdistricts.com
+  jdbcURL: jdbc:mysql://db1.jbmlabs.com/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+  jdbcUser: generic
+  jdbcPass: generic
+
+logging:
+  level:
+    org.springframework: 'INFO'
+    org.apache.tomcat: 'ERROR'
+
+---
+spring:
+  profiles: dev
+
+server:
+  port: 8080
+
+app:
+  baseURL: http://localhost:8080
+  jdbcURL: jdbc:mysql://localhost/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+  jdbcUser: generic
+  jdbcPass: generic

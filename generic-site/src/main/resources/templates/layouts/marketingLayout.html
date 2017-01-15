@@ -4,7 +4,14 @@
   <!--/*  Each token will be replaced by their respective titles in the resulting page. */-->
   <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Generic Site</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <script src="/dist/vendor.js" />
+
+  <meta name="git-version" th:content="${buildVersion.getGitVersion()}" />
+  <meta name="git-branch" th:content="${buildVersion.getGitBranch()}" />
+  <meta name="mvn-version" th:content="${buildVersion.getMvnVersion()}" />
+
+  <script th:if="${buildVersion.isDev()}" src="http://localhost:9090/dist/vendor.js"></script>
+  <script th:unless="${buildVersion.isDev()}" src="/dist/vendor.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css"/>
 </head>

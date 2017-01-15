@@ -12,7 +12,8 @@
     <p><a class="btn btn-lg btn-success" href="/login" role="button">Get Started</a></p>
   </div>
 
-  <script src="/dist/app.js"/>
+  <script th:if="${buildVersion.isDev()}" src="http://localhost:9090/dist/app.js"></script>
+  <script th:unless="${buildVersion.isDev()}" src="/dist/app.js"></script>
 
 </div>
 

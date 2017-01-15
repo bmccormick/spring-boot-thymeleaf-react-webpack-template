@@ -17,6 +17,7 @@
 
     <!-- Dependency versions -->
     <version.ehcache>2.6.9</version.ehcache>
+    <version.guava>21.0</version.guava>
     <version.htmlparser>2.1</version.htmlparser>
     <version.httpclient>4.3.4</version.httpclient>
     <version.hsqldb>2.3.3</version.hsqldb>
