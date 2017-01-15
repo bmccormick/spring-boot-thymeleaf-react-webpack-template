@@ -2,6 +2,6 @@
 .idea
 *.iml
 target/
-/betterdistricts-site/src/main/javascript/node/
-/betterdistricts-site/src/main/javascript/node_modules/
-/betterdistricts-site/src/main/resources/static/dist/
+/generic-site/src/main/javascript/node/
+/generic-site/src/main/javascript/node_modules/
+/generic-site/src/main/resources/static/dist/

@@ -1,1 +1,1 @@
-BetterDistricts
+Generic Site Template
