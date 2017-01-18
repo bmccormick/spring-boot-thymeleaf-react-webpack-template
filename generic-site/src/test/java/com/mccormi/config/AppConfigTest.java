@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Properties;
 
 @Configuration
-public class AppConfig {
+public class AppConfigTest {
   
-  private static Logger logger = LoggerFactory.getLogger(AppConfig.class);
+  private static Logger logger = LoggerFactory.getLogger(AppConfigTest.class);
   
   @Autowired
   @Bean
   public BuildVersion getBuildVersion(Environment environment) {
-  
-    logger.error("Using the LIVE Configuration");
+    
+    logger.error("Using the test Configuration");
     
     BuildVersion result = new BuildVersion();
     Properties versionProperties = ResourceProperties.propertiesFromResource("version.properties");

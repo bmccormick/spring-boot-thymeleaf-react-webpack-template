@@ -342,6 +342,11 @@
         <version>${version.slf4j}</version>
       </dependency>
       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${version.spring-boot}</version>
+      </dependency>
+      <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-aop</artifactId>
         <version>${version.spring}</version>
@@ -381,6 +386,7 @@
         <artifactId>spring-webmvc</artifactId>
         <version>${version.spring}</version>
       </dependency>
+
       <dependency>
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-web</artifactId>
