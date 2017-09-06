@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<?xml version="1.0" encoding="utf-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -16,52 +17,44 @@
     <version.java.target>1.8</version.java.target>
 
     <!-- Dependency versions -->
-    <version.ehcache>2.6.9</version.ehcache>
-    <version.guava>21.0</version.guava>
-    <version.htmlparser>2.1</version.htmlparser>
-    <version.httpclient>4.3.4</version.httpclient>
-    <version.hsqldb>2.3.3</version.hsqldb>
-    <version.jackson>2.6.4</version.jackson>
-    <version.javassist>3.18.2-GA</version.javassist>
-    <version.javax-servlet-api>3.1.0</version.javax-servlet-api>
-    <version.joda-time>2.9.1</version.joda-time>
-    <version.jopt-simple>4.9</version.jopt-simple>
-    <version.json>20151123</version.json>
-    <version.jsoup>1.8.3</version.jsoup>
-    <version.jsp-api>2.2</version.jsp-api>
-    <version.jstl>1.2</version.jstl>
+    <version.guava>23.0</version.guava>
+    <version.hibernate>5.2.10.Final</version.hibernate>
+    <version.httpclient>4.5.3</version.httpclient>
+    <version.hsqldb>2.4.0</version.hsqldb>
+    <version.jackson>2.8.8</version.jackson>
+    <version.joda-time>2.9.9</version.joda-time>
+    <version.json>20170516</version.json>
+    <version.jsoup>1.10.3</version.jsoup>
     <version.junit>4.12</version.junit>
     <version.log4j>1.2.17</version.log4j>
-    <version.metrics>3.1.2</version.metrics>
-    <version.mockito>1.9.5</version.mockito>
-    <version.mysql>5.1.37</version.mysql>
-    <version.slf4j>1.7.13</version.slf4j>
-    <version.spring>4.3.5.RELEASE</version.spring>
-    <version.spring-boot>1.4.3.RELEASE</version.spring-boot>
-    <version.spring-security>4.1.3.RELEASE</version.spring-security>
+    <version.metrics>3.2.4</version.metrics>
+    <version.mockito>2.9.0</version.mockito>
+    <version.mysql>5.1.44</version.mysql>
+    <version.slf4j>1.7.25</version.slf4j>
+    <version.snakeyaml>1.18</version.snakeyaml>
+    <version.spring>4.3.10.RELEASE</version.spring>
+    <version.spring-boot>1.5.6.RELEASE</version.spring-boot>
+    <version.spring-security>4.2.3.RELEASE</version.spring-security>
     <version.swagger>1.0.2</version.swagger>
-    <version.taglibs>1.2.1</version.taglibs>
-    <version.xerces>2.11.0</version.xerces>
 
     <!-- Plugin versions -->
     <version.buildnumber-maven-plugin>1.4</version.buildnumber-maven-plugin>
-    <version.docbkx-maven-plugin>2.0.15</version.docbkx-maven-plugin>
+    <version.frontend-maven-plugin>1.4</version.frontend-maven-plugin>
+    <version.git-commit-plugin>2.2.2</version.git-commit-plugin>
     <version.maven-antrun-plugin>1.8</version.maven-antrun-plugin>
     <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
     <version.maven-checkstyle-plugin>2.17</version.maven-checkstyle-plugin>
-    <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
+    <version.maven-compiler-plugin>3.6.1</version.maven-compiler-plugin>
     <version.maven-enforcer-plugin>1.4.1</version.maven-enforcer-plugin>
-    <version.frontend-maven-plugin>1.0</version.frontend-maven-plugin>
     <version.maven-jar-plugin>2.6</version.maven-jar-plugin>
     <version.maven-javadoc-plugin>2.10.1</version.maven-javadoc-plugin>
     <version.maven-resources-plugin>2.6</version.maven-resources-plugin>
-    <version.maven-rpm-plugin>2.1.3</version.maven-rpm-plugin>
-    <version.maven-shade-plugin>2.3</version.maven-shade-plugin>
-    <version.maven-surefire-plugin>2.16</version.maven-surefire-plugin>
-    <version.maven-war-plugin>2.4</version.maven-war-plugin>
+    <version.maven-surefire-plugin>2.20</version.maven-surefire-plugin>
+    <version.maven-war-plugin>2.6</version.maven-war-plugin>
+
     <!-- tool versions -->
-    <version.node>v6.2.2</version.node>
-    <version.npm>3.10.3</version.npm>
+    <version.node>v6.11.2</version.node>
+    <version.npm>3.10.10</version.npm>
   </properties>
 
   <build>
@@ -167,31 +160,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-maven-plugin</artifactId>
-          <version>${version.jetty}</version>
-          <configuration>
-            <scanIntervalSeconds>0</scanIntervalSeconds>
-            <useTestScope>true</useTestScope>
-            <webAppConfig>
-              <defaultsDescriptor>src/test/resources/webdefault.xml</defaultsDescriptor>
-            </webAppConfig>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>rpm-maven-plugin</artifactId>
-          <version>${version.maven-rpm-plugin}</version>
-          <executions>
-            <execution>
-              <id>attach-rpm</id>
-              <goals>
-                <goal>attached-rpm</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
           <groupId>com.github.eirslett</groupId>
           <artifactId>frontend-maven-plugin</artifactId>
           <version>${version.frontend-maven-plugin}</version>
@@ -250,6 +218,23 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <version>${version.git-commit-plugin}</version>
+          <executions>
+            <execution>
+              <id>get-the-git-infos</id>
+              <goals>
+                <goal>revision</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <dateFormat>yyyy-MM-dd HH:mm:ss z</dateFormat>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -257,9 +242,9 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.mangofactory</groupId>
-        <artifactId>swagger-springmvc</artifactId>
-        <version>${version.swagger}</version>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${version.guava}</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -267,14 +252,44 @@
         <version>${version.jackson}</version>
       </dependency>
       <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>${version.javax-servlet-api}</version>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-yaml</artifactId>
+        <version>${version.jackson}</version>
       </dependency>
       <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
-        <version>${version.jsp-api}</version>
+        <groupId>com.mangofactory</groupId>
+        <artifactId>swagger-springmvc</artifactId>
+        <version>${version.swagger}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-annotation</artifactId>
+        <version>${version.metrics}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-core</artifactId>
+        <version>${version.metrics}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-json</artifactId>
+        <version>${version.metrics}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-jvm</artifactId>
+        <version>${version.metrics}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-servlets</artifactId>
+        <version>${version.metrics}</version>
+      </dependency>
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>${version.joda-time}</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -287,13 +302,33 @@
         <version>${version.log4j}</version>
       </dependency>
       <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${version.guava}</version>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${version.mysql}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${version.httpclient}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>kafka-clients</artifactId>
+        <version>${version.kafka}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper</artifactId>
+        <version>${version.zookeeper}-cdh${version.cdh}</version>
       </dependency>
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
+        <version>${version.hibernate}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
         <version>${version.hibernate}</version>
       </dependency>
       <dependency>
@@ -317,14 +352,9 @@
         <version>${version.json}</version>
       </dependency>
       <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${version.mysql}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>${version.httpclient}</version>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>${version.jsoup}</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
@@ -340,11 +370,6 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>${version.slf4j}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <version>${version.spring-boot}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -386,7 +411,21 @@
         <artifactId>spring-webmvc</artifactId>
         <version>${version.spring}</version>
       </dependency>
-
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+        <version>${version.spring-boot}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-hateoas</artifactId>
+        <version>${version.spring-boot}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${version.spring-boot}</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-web</artifactId>
@@ -398,74 +437,9 @@
         <version>${version.spring-security}</version>
       </dependency>
       <dependency>
-        <groupId>xerces</groupId>
-        <artifactId>xercesImpl</artifactId>
-        <version>${version.xerces}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-impl</artifactId>
-        <version>${version.taglibs}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-spec</artifactId>
-        <version>${version.taglibs}</version>
-      </dependency>
-      <dependency>
-        <groupId>jstl</groupId>
-        <artifactId>jstl</artifactId>
-        <version>${version.jstl}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.sf.jopt-simple</groupId>
-        <artifactId>jopt-simple</artifactId>
-        <version>${version.jopt-simple}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard.metrics</groupId>
-        <artifactId>metrics-annotation</artifactId>
-        <version>${version.metrics}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard.metrics</groupId>
-        <artifactId>metrics-core</artifactId>
-        <version>${version.metrics}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard.metrics</groupId>
-        <artifactId>metrics-json</artifactId>
-        <version>${version.metrics}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard.metrics</groupId>
-        <artifactId>metrics-jvm</artifactId>
-        <version>${version.metrics}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard.metrics</groupId>
-        <artifactId>metrics-servlets</artifactId>
-        <version>${version.metrics}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-jsp</artifactId>
-        <version>${version.jetty}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-c3p0</artifactId>
-        <version>${version.hibernate}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.sf.ehcache</groupId>
-        <artifactId>ehcache-core</artifactId>
-        <version>${version.ehcache}</version>
-      </dependency>
-      <dependency>
-        <groupId>joda-time</groupId>
-        <artifactId>joda-time</artifactId>
-        <version>${version.joda-time}</version>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${version.snakeyaml}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
