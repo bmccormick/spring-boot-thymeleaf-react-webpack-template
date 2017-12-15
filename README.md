@@ -28,7 +28,7 @@ This may take a few minutes the first time as it will pull down a local copy of 
 Start the spring boot application.
 
 ```
-./generic-site/target/generic-site.jar
+./generic-site/target/generic-site.jar --spring.profiles.active=prod
 ```
 View the application in your browser.
 ```
