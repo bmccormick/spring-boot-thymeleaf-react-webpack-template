@@ -1,4 +1,4 @@
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/marketingLayout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/homeLayout">
 <head>
   <title>Generic Site Login</title>
 </head>
@@ -6,11 +6,11 @@
 
 <div layout:fragment="content">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-3">
       &nbsp;
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Login</h3>
@@ -41,10 +41,15 @@
       </div>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-3">
       &nbsp;
     </div>
   </div>
 </div>
+
+<div layout:fragment="loadscript">
+
+</div>
+
 </body>
 </html>

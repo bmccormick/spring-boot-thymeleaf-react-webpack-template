@@ -9,7 +9,16 @@ public class BuildVersion {
   private String gitVersion = "unknown";
   private String gitBranch = "unknown";
   private List<String> profiles = Lists.newArrayList();
-
+  private String hostname = "unknown";
+  
+  public String getHostname() {
+    return hostname;
+  }
+  
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
+  
   public String getMvnVersion() {
     return mvnVersion;
   }

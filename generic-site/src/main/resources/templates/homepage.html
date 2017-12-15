@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layouts/marketingLayout">
+      layout:decorator="layouts/homeLayout">
 <head>
   <title>Generic Site Homepage</title>
 </head>
@@ -8,13 +8,13 @@
 <div layout:fragment="content">
   <div class="jumbotron">
     <h1>Coming Soon</h1>
-
     <p><a class="btn btn-lg btn-success" href="/login" role="button">Get Started</a></p>
   </div>
+</div>
 
+<div layout:fragment="loadscript">
   <script th:if="${buildVersion.isDev()}" src="http://localhost:9090/dist/app.js"></script>
   <script th:unless="${buildVersion.isDev()}" src="/dist/app.js"></script>
-
 </div>
 
 </body>

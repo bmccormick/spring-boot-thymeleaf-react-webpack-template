@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="headFragment">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="git-version" th:content="${buildVersion.getGitVersion()}" />
+  <meta name="git-branch" th:content="${buildVersion.getGitBranch()}" />
+  <meta name="mvn-version" th:content="${buildVersion.getMvnVersion()}" />
+  <meta name="hostname" th:content="${buildVersion.getHostname()}" />
+</head>
+<body>
+
+<div th:fragment="navbar" class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation" class="active"><a href="/">Home</a></li>
+      <li role="presentation"><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+  <h3 class="text-muted"><a href="/">Generic Site</a></h3>
+</div>
+
+</body>
+</html>

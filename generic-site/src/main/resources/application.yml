@@ -1,33 +1,76 @@
-spring:
-  profiles:
-    active: prod
-
-server:
-  port: 8100
-  compression:
-    enabled: true
-    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
-
-app:
-  baseURL: http://www.betterdistricts.com
-  jdbcURL: jdbc:mysql://db1.jbmlabs.com/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
-  jdbcUser: generic
-  jdbcPass: generic
-
 logging:
   level:
-    org.springframework: 'INFO'
+    com.mchange: 'WARN'
+    hive: 'WARN'
+    org.springframework: 'WARN'
+    org.apache.catalina: 'WARN'
+    org.apache.hadoop: 'WARN'
+    org.apache.hive: 'WARN'
+    org.apache.http.client.protocol: 'ERROR'
+    org.apache.kafka: 'WARN'
     org.apache.tomcat: 'ERROR'
+    org.apache.zookeeper: 'WARN'
+    org.hibernate: 'WARN'
+    org.kitesdk: 'WARN'
+    parquet: 'WARN'
+    parquet.hadoop: 'WARN'
+
+server:
+  port: 8080
 
 ---
 spring:
   profiles: dev
 
-server:
-  port: 8080
+security:
+  require-ssl: false
 
 app:
   baseURL: http://localhost:8080
   jdbcURL: jdbc:mysql://localhost/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
   jdbcUser: generic
   jdbcPass: generic
+
+---
+spring:
+  profiles: test
+
+app:
+  baseURL: http://localhost:8080
+  jdbcURL: empty
+  jdbcUser: empty
+  jdbcPass: empty
+
+---
+spring:
+  profiles: prod
+
+server:
+  port: 8100
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
+  tomcat:
+    remote-ip-header: X-Forwarded-For
+    protocol-header: X-Forwarded-Proto
+
+security:
+  require-ssl: true
+
+endpoints:
+  sensitive: true
+  health:
+    sensitive: false
+
+app:
+  baseURL: http://www.jbmlabs.com
+  jdbcURL: jdbc:mysql://db1.jbmlabs.com/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+  jdbcUser: generic
+  jdbcPass: generic
+
+management:
+  info:
+    git:
+      mode: full
+  security:
+    enabled: true
