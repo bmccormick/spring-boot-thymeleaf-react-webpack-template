@@ -45,8 +45,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',
-      boostrap: 'bootstrap',
-      loadCSS: 'fg-loadcss'
+      boostrap: 'bootstrap'
     })
   ]
 };

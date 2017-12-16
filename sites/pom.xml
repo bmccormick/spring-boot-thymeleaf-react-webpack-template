@@ -35,7 +35,6 @@
     <version.spring>4.3.13.RELEASE</version.spring>
     <version.spring-boot>1.5.9.RELEASE</version.spring-boot>
     <version.spring-security>4.2.3.RELEASE</version.spring-security>
-    <version.swagger>1.0.2</version.swagger>
 
     <!-- Plugin versions -->
     <version.buildnumber-maven-plugin>1.4</version.buildnumber-maven-plugin>
