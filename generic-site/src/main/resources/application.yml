@@ -1,19 +1,9 @@
 logging:
   level:
-    com.mchange: 'WARN'
-    hive: 'WARN'
     org.springframework: 'WARN'
     org.apache.catalina: 'WARN'
-    org.apache.hadoop: 'WARN'
-    org.apache.hive: 'WARN'
-    org.apache.http.client.protocol: 'ERROR'
-    org.apache.kafka: 'WARN'
     org.apache.tomcat: 'ERROR'
-    org.apache.zookeeper: 'WARN'
     org.hibernate: 'WARN'
-    org.kitesdk: 'WARN'
-    parquet: 'WARN'
-    parquet.hadoop: 'WARN'
 
 server:
   port: 8080
@@ -21,9 +11,6 @@ server:
 ---
 spring:
   profiles: dev
-
-security:
-  require-ssl: false
 
 app:
   baseURL: http://localhost:8080
@@ -54,23 +41,10 @@ server:
     remote-ip-header: X-Forwarded-For
     protocol-header: X-Forwarded-Proto
 
-security:
-  require-ssl: true
-
-endpoints:
-  sensitive: true
-  health:
-    sensitive: false
-
 app:
-  baseURL: http://www.jbmlabs.com
+  baseURL: http://localhost:8080
   jdbcURL: jdbc:mysql://localhost/generic
   jdbcUser: generic
   jdbcPass: generic
 
-management:
-  info:
-    git:
-      mode: full
-  security:
-    enabled: true
+
