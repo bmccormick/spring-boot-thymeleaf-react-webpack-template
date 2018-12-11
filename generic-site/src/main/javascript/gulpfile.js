@@ -1,20 +1,14 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
-const critical = require('critical');
 const gutil = require('gulp-util');
 const rimraf = require('rimraf');
 const eslint = require('gulp-eslint');
 const cleanCSS = require('gulp-clean-css');
-const sequence = require('gulp-sequence');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const webpackConfig = require('./webpack.config.js');
-
-gulp.task('default', ['webpack-dev-server']);
-
-gulp.task('clean', ['cleanDist', 'cleanGen']);
 
 gulp.task('cleanGen', (cb) => {
   rimraf('css/*.css', cb);
@@ -24,9 +18,7 @@ gulp.task('cleanDist', (cb) => {
   rimraf('../resources/static/dist', cb);
 });
 
-gulp.task('cleanCritical', (cb) => {
-  rimraf('critical/*.css', cb);
-});
+gulp.task('clean', gulp.series('cleanDist', 'cleanGen'));
 
 gulp.task('lint', function () {
   return gulp.src('app/**/*.js')
@@ -35,9 +27,6 @@ gulp.task('lint', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('pre', sequence('css', 'lint'));
-
-gulp.task('css', sequence('clean', ['user-css', 'home-css']));
 
 gulp.task('user-css', function () {
   return gulp.src(['css/common/bootstrap.css',
@@ -67,74 +56,38 @@ gulp.task('home-css', function () {
     .pipe(gulp.dest('../resources/static/dist/css'));
 });
 
-gulp.task('critical', sequence(['css', 'cleanCritical'], ['home-critical', 'user-critical']));
+gulp.task('css', gulp.series('clean', 'user-css', 'home-css'));
 
-gulp.task('home-critical', function () {
-  critical.generate({
-    inline: false,
-    base: 'critical/',
-    src: 'homeLayout.html',
-    dest: 'homeLayout.css',
-    css: ['css/home.css'],
-    minify: true,
-    width: 800,
-    height: 600
-  });
-});
+gulp.task('pre', gulp.series('css', 'lint'));
 
-gulp.task('user-critical', function () {
-  critical.generate({
-    inline: false,
-    base: 'critical/',
-    src: 'userLayout.html',
-    dest: 'userLayout.css',
-    css: ['css/user.css'],
-    minify: true,
-    width: 800,
-    height: 600
-  });
-});
-
-// Production build
-gulp.task('build', ['webpack:build']);
-
-gulp.task('webpack:build', ['pre'], function (callback) {
-  // modify some webpack config options
-  const myConfig = Object.create(webpackConfig);
-  myConfig.plugins = myConfig.plugins.concat(
-    new webpack.DefinePlugin({
-      'process.env': {
-        // This has effect on the react lib size
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  );
-  
-  // run webpack
-  webpack(myConfig, function (err, stats) {
+gulp.task('webpack:build', gulp.series('pre', function (callback) {
+  webpackConfig.mode = 'production';
+  webpackConfig.performance = { hints: false };
+  webpack(webpackConfig, function (err, stats) {
     if (err) throw new gutil.PluginError('webpack:build', err);
     gutil.log('[webpack:build]', stats.toString({
       colors: true
     }));
     callback();
   });
-});
+}));
 
-gulp.task("webpack-dev-server", ["pre"], function (callback) {
-  const myConfig = Object.create(webpackConfig);
-  myConfig.devtool = 'inline-source-map';
-  new WebpackDevServer(webpack(myConfig), {
+// Production build
+gulp.task('build', gulp.series('webpack:build'));
+
+gulp.task('webpack-dev-server', gulp.series('pre', function () {
+  
+  webpackConfig.mode = 'development';
+  new WebpackDevServer(webpack(webpackConfig), {
     publicPath: '/dist/',
     stats: {
       colors: true
     }
-  }).listen(9090, 'localhost', function (err) {
-    if (err) throw new gutil.PluginError('webpack-dev-server', err);
-    gutil.log('[webpack-dev-server]', 'http://localhost:9090/webpack-dev-server/index.html');
+  }).listen(9090, "localhost", function (err) {
+    if (err) throw new gutil.PluginError("webpack-dev-server", err);
+    gutil.log("[webpack-dev-server]", "http://localhost:9090/webpack-dev-server/index.html");
   });
-});
+  
+}));
+
+gulp.task('default', gulp.series('webpack-dev-server'));

@@ -27,7 +27,7 @@ security:
 
 app:
   baseURL: http://localhost:8080
-  jdbcURL: jdbc:mysql://localhost/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+  jdbcURL: jdbc:mysql://localhost/generic
   jdbcUser: generic
   jdbcPass: generic
 
@@ -64,7 +64,7 @@ endpoints:
 
 app:
   baseURL: http://www.jbmlabs.com
-  jdbcURL: jdbc:mysql://db1.jbmlabs.com/generic?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+  jdbcURL: jdbc:mysql://localhost/generic
   jdbcUser: generic
   jdbcPass: generic
 
