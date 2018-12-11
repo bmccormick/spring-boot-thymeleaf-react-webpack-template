@@ -1,4 +1,4 @@
-# A template application integrating Spring Boot 2.1, Thymeleaf templates, React, and Webpack 4
+# A simple starter template application integrating Spring 5.1, Spring Boot 2.1, Thymeleaf templates, React, and Webpack 4
 
 ## Goal
 Create a starter template that incorporates the major tools necessary to build a modern web application.
