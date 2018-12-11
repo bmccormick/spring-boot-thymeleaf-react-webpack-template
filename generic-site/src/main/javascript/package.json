@@ -44,10 +44,10 @@
     "bootstrap-daterangepicker": "3.0.3",
     "datatables.net": "1.10.19",
     "datatables.net-dt": "1.10.19",
-    "datatables.net-bs": "1.10.19",
+    "datatables.net-bs4": "1.10.19",
     "datatables.net-buttons": "1.5.4",
     "datatables.net-buttons-dt": "1.5.4",
-    "datatables.net-buttons-bs": "1.5.4",
+    "datatables.net-buttons-bs4": "1.5.4",
     "datatables-responsive": "1.0.7",
     "handlebars": "4.0.12",
     "jquery": "3.3.1",
@@ -58,6 +58,6 @@
     "react-dom": "16.6.3",
     "requirejs": "2.3.6",
     "select2": "4.0.4",
-    "select2-bootstrap-theme": "0.1.0-beta.10"
+    "select2-bootstrap4-theme": "1.0.0"
   }
 }
