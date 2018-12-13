@@ -45,7 +45,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',
-      boostrap: 'bootstrap'
+      bootstrap: 'bootstrap',
+      Popper: ['popper.js', 'default']
     })
   ]
 };

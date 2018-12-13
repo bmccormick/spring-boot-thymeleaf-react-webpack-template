@@ -4,11 +4,19 @@ const gutil = require('gulp-util');
 const rimraf = require('rimraf');
 const eslint = require('gulp-eslint');
 const cleanCSS = require('gulp-clean-css');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const webpackConfig = require('./webpack.config.js');
+
+gulp.task('sass', function () {
+  return gulp.src(['./sass/**/*.scss'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./css/common'));
+});
 
 gulp.task('cleanGen', (cb) => {
   rimraf('css/*.css', cb);
@@ -29,10 +37,9 @@ gulp.task('lint', function () {
 
 
 gulp.task('user-css', function () {
-  return gulp.src(['css/common/bootstrap.css',
-    'css/common/bootstrap-theme.css',
-    'css/common/dataTables.bootstrap.css',
-    'css/common/buttons.bootstrap.css',
+  return gulp.src(['css/common/custom.css',
+    'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
+    'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.css',
     'css/user/user.css'])
     .pipe(concat('user.css'))
     .pipe(sourcemaps.init())
@@ -43,10 +50,9 @@ gulp.task('user-css', function () {
 });
 
 gulp.task('home-css', function () {
-  return gulp.src(['css/common/bootstrap.css',
-    'css/common/bootstrap-theme.css',
-    'css/common/dataTables.bootstrap.css',
-    'css/common/buttons.bootstrap.css',
+  return gulp.src(['css/common/custom.css',
+    'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
+    'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.css',
     'css/home/home.css'])
     .pipe(concat('home.css'))
     .pipe(sourcemaps.init())
@@ -56,7 +62,7 @@ gulp.task('home-css', function () {
     .pipe(gulp.dest('../resources/static/dist/css'));
 });
 
-gulp.task('css', gulp.series('clean', 'user-css', 'home-css'));
+gulp.task('css', gulp.series('clean', 'sass', 'user-css', 'home-css'));
 
 gulp.task('pre', gulp.series('css', 'lint'));
 

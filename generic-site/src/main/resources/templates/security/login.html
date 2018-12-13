@@ -5,26 +5,26 @@
 <body>
 
 <div layout:fragment="content">
-  <div class="row">
-    <div class="col-xs-3">
-      &nbsp;
-    </div>
-
-    <div class="col-xs-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Login</h3>
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <div class="card">
+        <div class="card-header bg-dark text-light">
+          <h3 class="card-title">Login</h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body form-group">
           <form action="/login" method="post">
             <table>
               <tr>
                 <td class='login-label'>Email:</td>
-                <td><input type="text" id="username" name="username"/></td>
+                <td>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Email" required/>
+                </td>
               </tr>
               <tr>
                 <td>Password:</td>
-                <td><input type="password" id="password" name="password"/></td>
+                <td>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" required/>
+                </td>
               </tr>
               <tr>
                 <td>Remember Me:</td>
@@ -39,10 +39,6 @@
           </form>
         </div>
       </div>
-    </div>
-
-    <div class="col-xs-3">
-      &nbsp;
     </div>
   </div>
 </div>
