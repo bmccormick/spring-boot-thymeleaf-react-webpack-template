@@ -21,7 +21,7 @@
     <version.hibernate>5.3.10.Final</version.hibernate>
     <version.httpclient>4.5.6</version.httpclient>
     <version.hsqldb>2.4.1</version.hsqldb>
-    <version.jackson>2.9.9</version.jackson>
+    <version.jackson>2.9.9.3</version.jackson>
     <version.joda-time>2.10.2</version.joda-time>
     <version.json>20170516</version.json>
     <version.jsoup>1.10.3</version.jsoup>
@@ -53,8 +53,8 @@
     <version.maven-war-plugin>2.6</version.maven-war-plugin>
 
     <!-- tool versions -->
-    <version.node>v10.15.3</version.node>
-    <version.npm>6.4.1</version.npm>
+    <version.node>v10.16.2</version.node>
+    <version.npm>6.9.0</version.npm>
   </properties>
 
   <build>
