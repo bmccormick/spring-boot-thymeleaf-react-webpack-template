@@ -177,7 +177,7 @@
                 <nodeVersion>${version.node}</nodeVersion>
                 <npmVersion>${version.npm}</npmVersion>
                 <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
-                <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
+                <npmDownloadRoot>https://registry.npmjs.org/npm/-/</npmDownloadRoot>
               </configuration>
             </execution>
             <execution>
