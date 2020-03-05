@@ -31,7 +31,7 @@
     <version.mockito>2.23.4</version.mockito>
     <version.mysql>8.0.16</version.mysql>
     <version.slf4j>1.7.25</version.slf4j>
-    <version.spring>5.1.7.RELEASE</version.spring>
+    <version.spring>5.2.4.RELEASE</version.spring>
     <version.spring-boot>2.1.5.RELEASE</version.spring-boot>
     <version.spring-security>5.1.2.RELEASE</version.spring-security>
     <version.thymeleaf-layout>2.3.0</version.thymeleaf-layout>
