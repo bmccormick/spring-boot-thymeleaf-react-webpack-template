@@ -13,44 +13,42 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version.java.source>1.8</version.java.source>
-    <version.java.target>1.8</version.java.target>
+    <version.java.source>11</version.java.source>
+    <version.java.target>11</version.java.target>
 
     <!-- Dependency versions -->
-    <version.guava>23.0</version.guava>
-    <version.hibernate>5.3.10.Final</version.hibernate>
-    <version.httpclient>4.5.6</version.httpclient>
-    <version.hsqldb>2.4.1</version.hsqldb>
-    <version.jackson>2.9.9.3</version.jackson>
-    <version.joda-time>2.10.2</version.joda-time>
-    <version.json>20170516</version.json>
-    <version.jsoup>1.10.3</version.jsoup>
+    <version.guava>28.2-jre</version.guava>
+    <version.hibernate>5.4.12.Final</version.hibernate>
+    <version.httpclient>4.5.11</version.httpclient>
+    <version.hsqldb>2.5.0</version.hsqldb>
+    <version.jackson>2.10.2</version.jackson>
+    <version.joda-time>2.10.5</version.joda-time>
+    <version.json>20190722</version.json>
+    <version.jsoup>1.12.2</version.jsoup>
     <version.junit>4.12</version.junit>
-    <version.log4j>1.2.17</version.log4j>
-    <version.metrics>3.2.4</version.metrics>
+    <version.log4j>2.13.1</version.log4j>
+    <version.metrics>4.0.6</version.metrics>
     <version.mockito>2.23.4</version.mockito>
-    <version.mysql>8.0.16</version.mysql>
-    <version.slf4j>1.7.25</version.slf4j>
-    <version.spring>5.1.7.RELEASE</version.spring>
-    <version.spring-boot>2.1.5.RELEASE</version.spring-boot>
-    <version.spring-security>5.1.2.RELEASE</version.spring-security>
+    <version.mysql>8.0.17</version.mysql>
+    <version.slf4j>1.7.30</version.slf4j>
+    <version.spring>5.2.4.RELEASE</version.spring>
+    <version.spring-boot>2.2.4.RELEASE</version.spring-boot>
+    <version.spring-security>5.2.2.RELEASE</version.spring-security>
     <version.thymeleaf-layout>2.3.0</version.thymeleaf-layout>
 
     <!-- Plugin versions -->
     <version.buildnumber-maven-plugin>1.4</version.buildnumber-maven-plugin>
-    <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
-    <version.git-commit-plugin>2.2.5</version.git-commit-plugin>
+    <version.frontend-maven-plugin>1.9.1</version.frontend-maven-plugin>
+    <version.git-commit-plugin>3.0.1</version.git-commit-plugin>
     <version.maven-antrun-plugin>1.8</version.maven-antrun-plugin>
-    <version.maven-assembly-plugin>3.1.0</version.maven-assembly-plugin>
-    <version.maven-checkstyle-plugin>2.17</version.maven-checkstyle-plugin>
+    <version.maven-checkstyle-plugin>3.1.1</version.maven-checkstyle-plugin>
     <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
-    <version.maven-dependency-plugin>3.0.2</version.maven-dependency-plugin>
-    <version.maven-enforcer-plugin>3.0.0-M2</version.maven-enforcer-plugin>
-    <version.maven-jar-plugin>3.1.2</version.maven-jar-plugin>
-    <version.maven-javadoc-plugin>3.0.1</version.maven-javadoc-plugin>
-    <version.maven-resources-plugin>3.0.2</version.maven-resources-plugin>
-    <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
-    <version.maven-war-plugin>2.6</version.maven-war-plugin>
+    <version.maven-dependency-plugin>3.1.1</version.maven-dependency-plugin>
+    <version.maven-jar-plugin>3.2.0</version.maven-jar-plugin>
+    <version.maven-javadoc-plugin>3.1.1</version.maven-javadoc-plugin>
+    <version.maven-resources-plugin>3.1.0</version.maven-resources-plugin>
+    <version.maven-surefire-plugin>3.0.0-M4</version.maven-surefire-plugin>
+    <version.maven-war-plugin>3.2.3</version.maven-war-plugin>
 
     <!-- tool versions -->
     <version.node>v12.16.1</version.node>
@@ -125,7 +123,6 @@
           <configuration>
             <argLine>-Djava.library.path=${basedir}/lib:/usr/local/lib:/usr/lib:/lib</argLine>
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
-            <excludedGroups>${testcase.excluded-groups}</excludedGroups>
           </configuration>
         </plugin>
         <plugin>
@@ -258,11 +255,6 @@
         <version>${version.guava}</version>
       </dependency>
       <dependency>
-        <groupId>com.mangofactory</groupId>
-        <artifactId>swagger-springmvc</artifactId>
-        <version>${version.swagger}</version>
-      </dependency>
-      <dependency>
         <groupId>io.dropwizard.metrics</groupId>
         <artifactId>metrics-annotation</artifactId>
         <version>${version.metrics}</version>
@@ -298,8 +290,8 @@
         <version>${version.junit}</version>
       </dependency>
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
         <version>${version.log4j}</version>
       </dependency>
       <dependency>
