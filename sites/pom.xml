@@ -26,7 +26,7 @@
     <version.json>20190722</version.json>
     <version.jsoup>1.12.2</version.jsoup>
     <version.junit>4.12</version.junit>
-    <version.log4j>2.13.1</version.log4j>
+    <version.log4j>2.13.2</version.log4j>
     <version.metrics>4.0.6</version.metrics>
     <version.mockito>2.23.4</version.mockito>
     <version.mysql>8.0.17</version.mysql>
