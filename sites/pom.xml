@@ -32,7 +32,7 @@
     <version.mysql>8.0.17</version.mysql>
     <version.slf4j>1.7.30</version.slf4j>
     <version.spring>5.2.4.RELEASE</version.spring>
-    <version.spring-boot>2.2.4.RELEASE</version.spring-boot>
+    <version.spring-boot>2.2.5.RELEASE</version.spring-boot>
     <version.spring-security>5.2.2.RELEASE</version.spring-security>
     <version.thymeleaf-layout>2.3.0</version.thymeleaf-layout>
 
@@ -51,8 +51,8 @@
     <version.maven-war-plugin>3.2.3</version.maven-war-plugin>
 
     <!-- tool versions -->
-    <version.node>v12.16.1</version.node>
-    <version.npm>6.14.2</version.npm>
+    <version.node>v12.16.3</version.node>
+    <version.npm>6.14.6</version.npm>
   </properties>
 
   <build>
