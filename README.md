@@ -15,7 +15,7 @@ I was trying to bring all of these tools together and ran into a few pitfalls al
 writing it up so that others could avoid the mistakes that I made. 
 
 ## Build Requirements
-* Java 8 sdk
+* Java 11 sdk
 * Apache Maven 3.1.0 or later.
 
 ## Building
